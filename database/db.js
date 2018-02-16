@@ -11,5 +11,5 @@ MongoClient.connect(connectionUrl, function(err, db) {
     log.err(err);  
     throw err;
   }
-  log.info("Database created!");
+  log.info("Connected to database!");
 });
