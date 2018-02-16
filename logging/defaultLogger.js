@@ -12,8 +12,8 @@ function logger(){
     this.warning = (warning) => {
         console.log(warning(warning));
     }
-    this.info = (info) => {
-        console.log(info(info));
+    this.info = (message) => {
+        console.log(info(message));
     }
 }
 
