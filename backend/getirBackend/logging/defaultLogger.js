@@ -1,6 +1,6 @@
 
 var chalk = require('chalk');
-var err = chalk.bold.red;
+var error = chalk.bold.red;
 var warning = chalk.bold.yellow;
 var info = chalk.bold.green;
 
