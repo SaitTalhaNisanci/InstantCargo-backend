@@ -12,11 +12,13 @@ Ahmet is in Besiktas and he is driving to Bogazici. He wants to check if there a
 ## Dependencies
 * [express](https://expressjs.com) Rest Framework
 * [mongoose](http://mongoosejs.com) NoSql database engine
+* [hazelcast](https://github.com/hazelcast/hazelcast-nodejs-client) for caching.
 * [chai](http://chaijs.com) Testing
 * [mocha](https://mochajs.org) Testing
 * [config](https://github.com/lorenwest/node-config) Production and testing seperation for databases
 * [chalk](https://github.com/chalk/chalk) Logging with style for terminal
 * [nodemon](https://nodemon.io)  starts the server whenever there is a change. This is for faster development.
+
 
 [nodejs](https://nodejs.org) is the development language for server side.
 
