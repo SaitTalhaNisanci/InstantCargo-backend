@@ -31,7 +31,7 @@ var addRequest = (requestData) => {
  *   user: id (the user who made the request)
  * }
  */
-router.post('/', (req,res) => {
+router.post('/create', (req,res) => {
   var requestData = {
       name:req.body.name,
       destination: req.body.destination,
@@ -39,8 +39,8 @@ router.post('/', (req,res) => {
       user:req.body.user,
   }
   addRequest(requestData)
-    .then( (res) => {
-        res.status(200).send(res);
+    .then( (result) => {
+        res.status(201).send(result);
     })
     .catch( (err) =>{
         res.status(400).send(err);
