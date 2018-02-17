@@ -3,7 +3,6 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema,
     collectionNames = require('../common/constants').collectionNames;
 /*
-    id: id of the request
     name: name of the object to be delivered
     destination: destination is where the object will be delivered to
     source: source is where the object will be taken from
@@ -11,13 +10,12 @@ var mongoose = require('mongoose'),
 */
 var requestSchema = new Schema(
     {
-        _id: Schema.Types.ObjectId,
         name:String,
-        destination:String,
-        source:String,
+        destination:{ type: {type:String}, coordinates: [Number]},
+        source:{ type: {type:String}, coordinates: [Number]},
         user:{type:Schema.Types.ObjectId,ref :collectionNames.user}
     }
 );
-
+requestSchema.index({destination: '2dsphere',source:'2dsphere'});
 mongoose.model(collectionNames.request,requestSchema);
 module.exports = mongoose.model(collectionNames.request);
