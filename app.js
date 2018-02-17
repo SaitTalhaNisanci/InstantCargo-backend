@@ -1,13 +1,13 @@
 var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var database = require('./database/db');
-var index = require('./routes/index');
-var requests = require('./routes/requests');
-var users = require('./routes/users');
-var app = express();
+    path = require('path'),
+    favicon = require('serve-favicon'),
+    cookieParser = require('cookie-parser'),
+    bodyParser = require('body-parser'),
+    database = require('./database/db'),
+    index = require('./routes/index'),
+    requests = require('./routes/requests'),
+    users = require('./routes/users'),
+    app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

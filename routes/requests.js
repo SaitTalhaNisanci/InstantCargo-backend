@@ -6,9 +6,9 @@ var express = require('express'),
     prettyJSON = require('../common/util');
 
 /*
- addRequest is an async function to add a request to request model
- with the given requestData.
-*/
+ * addRequest is an async function to add a request to request model
+ * with the given requestData.
+ */
 var addRequest = (requestData) => {
     return new Promise( (resolve,reject) => { 
         requestModel.create(requestData,(err,res) => {
@@ -23,14 +23,14 @@ var addRequest = (requestData) => {
     });
 }
 /* POST a new request.
-request data:
-{
-    name: name of the item
-    destination: destination for the item
-    source: source for the item
-    user: the user who made the request
-}
-*/
+ * request data:
+ * {
+ *   name: string (name of the item)
+ *   destination: string (destination for the item)
+ *   source: string (source for the item)
+ *   user: id (the user who made the request)
+ * }
+ */
 router.post('/', (req,res) => {
   var requestData = {
       name:req.body.name,
