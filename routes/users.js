@@ -3,7 +3,8 @@ var express = require('express');
   userModel = require('../models/user'),
   defaultLogger = require('../logging/defaultLogger'),
   log = new defaultLogger(),
-  prettyJSON = require('../common/util');
+  prettyJSON = require('../common/util'),
+  logMessages = require('../common/constants').logMessages;
 
 /*
  * addUser is an async function to create a user
@@ -16,7 +17,7 @@ var addUser = (userData) => {
           log.err(err);
           reject(err);
       }else {
-          log.info("a new user is successfully created: ");
+          log.info(logMessages.userCreated);
           resolve(res);
       }
    });
@@ -62,7 +63,7 @@ var updateLocation = (conditions,update,options) => {
   return new Promise((resolve,reject) => {
     userModel.findOneAndUpdate(conditions,update, options,(err,doc) => {
       if (!err && doc){
-        log.info("User location is successully updated");
+        log.info(logMessages.locationSuccessfullyUpdated);
         resolve(doc);
       }else {
         log.err(err);

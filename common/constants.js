@@ -7,6 +7,13 @@ const collectionNames = {
     request:"request",
     user:"user",
 };
+// Log constants
+const logMessages = {
+    locationSuccessfullyUpdated: "User location is successully updated.",
+    nonExistentUserOrError: "User does not exist or there was an error.",
+    userCreated: "A new user has been created!",
+    requestCreated: "A new request has been created!",
+}
 
 // Unit constants
 const km = 1000
@@ -14,5 +21,6 @@ const km = 1000
 module.exports={
     connectionUrl,
     collectionNames,
-    km
+    km,
+    logMessages
 }

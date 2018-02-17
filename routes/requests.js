@@ -4,7 +4,8 @@ var express = require('express'),
     defaultLogger = require('../logging/defaultLogger'),
     log = new defaultLogger(),
     prettyJSON = require('../common/util'),
-    km = require('../common/constants').km;
+    km = require('../common/constants').km,
+    logMessages = require('../common/constants').logMessages;
     
 
 /*
@@ -18,7 +19,7 @@ var addRequest = (requestData) => {
                 log.err(err);
                 reject(err);
             }else {
-                log.info("a new request is successfully added: ", prettyJSON(requestData));
+                log.info(logMessages.requestCreated);
                 resolve(res);
             }
         });
