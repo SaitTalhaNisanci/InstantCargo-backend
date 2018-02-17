@@ -44,6 +44,37 @@ describe('requests', () => {
       });
 
   });
+  /* 
+   * Create a new request and make sure that getAll has that request.
+   */
+  describe('/POST request /POST getAll', () => {
+    it('it should create a new request and have it in getAll', (done) => {
+      let request = {
+          destination: {type:"Point",coordinates:[20,10]} ,
+          source:{type:"Point",coordinates:[20,10]},
+          name:"frisbee"
+      }
+      let getAll = {
+          latitude : 20,
+          longitude: 10,
+          distance : 10
+      }
+      chai.request(server)
+          .post('/request/create')
+          .send(request)
+          .end();
+      chai.request(server)
+          .post('/request/getAll')
+          .send(getAll)
+          .end((err,res) => {
+              res.should.have.status(200);
+              done();   
+          });
+
+           
+    });
+
+});
 });
 
 

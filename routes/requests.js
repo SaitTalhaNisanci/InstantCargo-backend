@@ -23,7 +23,7 @@ var addRequest = (requestData) => {
             }
         });
     });
-}
+}   
 /* POST a new request.
  * request data:
  * {
