@@ -22,7 +22,7 @@ Ahmet is in Besiktas and he is driving to Bogazici. He wants to check if there a
 
 
 ## Test
-To run the test simlpy execute
+To run the tests simlpy execute
 ```
 npm test
 ```
