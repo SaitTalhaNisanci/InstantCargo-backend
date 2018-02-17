@@ -4,7 +4,6 @@ var mongoose = require('mongoose'),
 
 
 /*
-    id: id of the user
     username: username is a unique name that user chooses.
     rate: rate has two components
         score: totalScore of the user
@@ -20,5 +19,5 @@ var userSchema  = new Schema (
     }
 ) 
 
-mongoose.model(collectionNames.user,userSchema);
+mongoose.model(collectionNames.user,userSchema,collectionNames.user);
 module.exports = mongoose.model(collectionNames.user);

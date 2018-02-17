@@ -22,17 +22,9 @@ describe('requests', () => {
   describe('/POST request', () => {
       it('it should create a new request', (done) => {
         let request = {
-            destination:{
-                "type":"Point",
-                "coordinates":[12.23,41,61]
-            },
-            source:{
-                "type":"Point",
-                "coordinates":[74.23,80,11]
-            },
-            name:"frisbee",
-            
-
+            destination: {type:"Point",coordinates:[20,10]} ,
+            source:{type:"Point",coordinates:[20,10]},
+            name:"frisbee"
         }
         chai.request(server)
             .post('/request/create')

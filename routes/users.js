@@ -13,7 +13,6 @@ var addUser = (userData) => {
   return new Promise( (resolve,reject) =>{
     userModel.create(userData,(err,res) => {
       if (err) {
-          
           log.err(err);
           reject(err);
       }else {

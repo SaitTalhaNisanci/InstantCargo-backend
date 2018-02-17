@@ -3,7 +3,9 @@ var express = require('express'),
     requestModel = require('../models/request'),
     defaultLogger = require('../logging/defaultLogger'),
     log = new defaultLogger(),
-    prettyJSON = require('../common/util');
+    prettyJSON = require('../common/util'),
+    km = require('../common/constants').km;
+    
 
 /*
  * addRequest is an async function to add a request to request model
@@ -48,4 +50,63 @@ router.post('/create', (req,res) => {
 
 });
 
+
+/*
+ * getAll is an async function to get all requests 
+ * from request collection.
+ * getAllData has the following form:
+ *  {
+ *      latitude: Number,
+ *      longitude: Number,
+ *      distance: Number 
+ *  }
+ * 
+ */
+var getAll = (getAllData)=>{
+    return new Promise((resolve,reject)=>{
+        var result = requestModel.find(
+            {
+                'destination':
+                    { 
+                        $near: {
+                            type: "Point" ,
+                            coordinates: [ lat , long ]
+                       },
+                        $maxDistance : distance*km
+                    }
+            }
+    
+        ).then(result => {
+            resolve(obj);
+        })
+        .catch(err => {
+            log.err(err);
+            reject(err);
+        });
+    })
+}
+/*
+ * POST to get all requests in the range of 'distance'
+ * getAllData:
+ *  {
+ *      latitude: Number,
+ *      longitude: Number,
+ *      distance: Number 
+ *  }
+ */
+router.post('/getAll',(req,res) => {
+    // Grab all of the query parameters from the body.
+    let getAllData = {
+        lat :req.body.latitude,
+        long : req.body.longitude,
+        distance : req.body.distance
+    }; 
+    getAll(getAllData)
+        .then(result =>{
+            res.status(200).send(result);
+        })
+        .catch(err => {
+            res.status(400).send(err);
+        })
+})
 module.exports = router;

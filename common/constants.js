@@ -8,7 +8,11 @@ const collectionNames = {
     user:"user",
 };
 
+// Unit constants
+const km = 1000
+
 module.exports={
     connectionUrl,
-    collectionNames
+    collectionNames,
+    km
 }
