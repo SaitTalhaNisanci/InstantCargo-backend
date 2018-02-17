@@ -70,14 +70,14 @@ var getAll = (getAllData)=>{
                     { 
                         $near: {
                             type: "Point" ,
-                            coordinates: [ lat , long ]
+                            coordinates: [ getAllData.lat ,getAllData.long ]
                        },
-                        $maxDistance : distance*km
+                        $maxDistance : getAllData.distance*km
                     }
             }
     
         ).then(result => {
-            resolve(obj);
+            resolve(result);
         })
         .catch(err => {
             log.err(err);
@@ -106,6 +106,7 @@ router.post('/getAll',(req,res) => {
             res.status(200).send(result);
         })
         .catch(err => {
+            log.err(err);       
             res.status(400).send(err);
         })
 })

@@ -7,6 +7,8 @@ let chai = require('chai');
 let chaiHttp = require('chai-http');
 let server = require('../app');
 let should = chai.should();
+let defaultLogger = require('../logging/defaultLogger');
+let log = new defaultLogger();
 
 chai.use(chaiHttp);
 
@@ -37,8 +39,12 @@ describe('requests', () => {
                 res.body.should.have.property('name');
                 res.body.should.have.property('created_at');
                 res.body.should.have.property('name').eql(request.name);
-              done();
+                done();
             });
       });
+
   });
 });
+
+
+
