@@ -22,7 +22,7 @@ describe('users', () => {
   describe('/POST user', () => {
       it('it should create a new user', (done) => {
         let user = {
-            username: "heisenberg"
+            username: "shannon"
         }
         chai.request(server)
             .post('/user/create')

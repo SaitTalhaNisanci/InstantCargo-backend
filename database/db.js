@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var connectionUrl = require('../common/constants').connectionUrl;
+var connectionUrl = require('config').DBHost;
 var defaultLogger = require('../logging/defaultLogger');
 var log = new defaultLogger();
 
