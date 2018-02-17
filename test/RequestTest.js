@@ -43,6 +43,7 @@ describe('requests', () => {
                 res.body.should.have.property('destination');
                 res.body.should.have.property('source');
                 res.body.should.have.property('name');
+                res.body.should.have.property('created_at');
                 res.body.should.have.property('name').eql(request.name);
               done();
             });
