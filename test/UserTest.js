@@ -19,7 +19,7 @@ describe('users', () => {
   /*
   * Test the /POST route
   */
-  describe('/POST user', () => {
+  describe('/POST /user/create', () => {
       it('it should create a new user', (done) => {
         let user = {
             username: "shannon"
@@ -36,8 +36,8 @@ describe('users', () => {
             });
       });
   });
-  describe('/POST user /POST request', () => {
-    it('it should create a new user', (done) => {
+  describe('/POST /user/create /POST /request/create', () => {
+    it('it should create a new user and a request', (done) => {
       let user = {
           username: "shannon"
       }

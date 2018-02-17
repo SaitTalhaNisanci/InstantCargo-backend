@@ -47,7 +47,7 @@ describe('requests', () => {
   /* 
    * Create a new request and make sure that getAll has that request.
    */
-  describe('/POST request /POST getAll', () => {
+  describe('/POST /request/create /POST /request/getAll', () => {
     it('it should create a new request and have it in getAll', (done) => {
       let request = {
           destination: {type:"Point",coordinates:[20,10]} ,
