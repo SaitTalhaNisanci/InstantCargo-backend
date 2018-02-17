@@ -12,7 +12,6 @@ var mongoose = require('mongoose'),
 */
 var userSchema  = new Schema (
     {
-        _id : Schema.Types.ObjectId,
         username: {type:String,unique:true},
         rate:{
             score:{type:Number},
