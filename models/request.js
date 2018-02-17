@@ -20,3 +20,4 @@ var requestSchema = new Schema(
 );
 
 mongoose.model(collectionNames.request,requestSchema);
+module.exports = mongoose.model(collectionNames.request);

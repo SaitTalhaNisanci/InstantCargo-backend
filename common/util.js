@@ -1,6 +1,6 @@
 
-function prettyJSON(obj) {
+module.exports = function prettyJSON(obj) {
     JSON.stringify(obj)
 }
 
-module.exports = prettyJSON;
+

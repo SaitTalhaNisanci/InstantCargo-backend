@@ -2,20 +2,21 @@ var express = require('express'),
     router = express.Router(),
     requestModel = require('../models/request'),
     defaultLogger = require('../logging/defaultLogger'),
-    log = new defaultLogger();
+    log = new defaultLogger(),
+    prettyJSON = require('../common/util');
 
 /*
  addRequest is an async function to add a request to request model
  with the given requestData.
 */
 var addRequest = (requestData) => {
-    return new Promise( (resolve,reject) =>{
-        requestModel.insertOne(requestData,(err,res) => {
+    return new Promise( (resolve,reject) => { 
+        requestModel.create(requestData,(err,res) => {
             if (err) {
                 log.err(err);
                 reject(err);
             }else {
-                log.info("a new request is successfully added");
+                log.info("a new request is successfully added: ", prettyJSON(requestData));
                 resolve(res);
             }
         });
