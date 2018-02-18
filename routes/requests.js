@@ -26,14 +26,20 @@ var addRequest = (requestData) => {
         });
     });
 }   
-/* POST a new request.
- * request data:
- * {
- *   name: string (name of the item)
- *   destination: string (destination for the item)
- *   source: string (source for the item)
- *   user: id (the user who made the request)
- * }
+ /**
+ * @api {post} /request/create Create a New Request
+ * @apiName CreateRequest
+ * @apiGroup Request
+ *
+ * @apiParam {String} name Name of the item 
+ * @apiParam {Location} destination Destination of the request
+ * @apiParam {Location} source source of the request
+ * @apiParam {String} user id of the User.
+ * @apiSuccess {String} name Name of the item 
+ * @apiSuccess {Location} destination Destination of the request
+ * @apiSuccess {Location} source Source of the request
+ * @apiSuccess {String} user Id of the User.
+ * @apiError {String} err Cause of the error
  */
 router.post('/create', (req,res) => {
   var requestData = {
@@ -87,14 +93,17 @@ var getAll = (getAllData)=>{
         });
     })
 }
-/*
- * POST to get all requests in the range of 'distance'
- * getAllData:
- *  {
- *      latitude: Number,
- *      longitude: Number,
- *      distance: Number 
- *  }
+
+  /**
+ * @api {post} /request/getAll Get All Requests Within The Given Range
+ * @apiName GetAllRequests
+ * @apiGroup Request
+ *
+ * @apiParam {Number} latitude latitude of the location
+ * @apiParam {Number} longitude longitude of the location
+ * @apiParam {Number} distance range of the requested items
+ * @apiSuccess {Array} array of items within the given range.
+ * @apiError {String} err Cause of the error
  */
 router.post('/getAll',(req,res) => {
     // Grab all of the query parameters from the body.
@@ -115,10 +124,19 @@ router.post('/getAll',(req,res) => {
 module.exports = router;
 
 
-/*
- * POST to choose a request as a deliverman.
- * Since tracking requests needs to be accessed fast
- * hazelcast is used for caching.
+
+ /**
+ * @api {post} /request/choose Choose a request to deliver
+ * @apiName ChooseRequest
+ * @apiGroup Request
+ *
+ * @apiParam {String} _id id of the request 
+ * @apiParam {Location} destination Destination of the request
+ * @apiParam {Location} source source of the request
+ * @apiParam {String} username username of the deliverman.
+ * @apiSuccess {Request} request Chosen request
+ * @apiSuccess {User} user User information
+ * @apiError {String} err Cause of the error
  */
 router.post('/choose',(req,res) => {
     let requestTrackData = {
@@ -134,5 +152,12 @@ router.post('/choose',(req,res) => {
     }
     let map = hazelcastClient.map;
     hazelcastClient.insertRequestDeliverman(map,requestTrackData.request,)
+        .then((value)=>{
+            res.status(200).send(value);
+        })
+        .catch((err) => {
+            res.status(400).send(err);
+        });
+    
     
 })

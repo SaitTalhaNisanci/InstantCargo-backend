@@ -23,11 +23,14 @@ var addUser = (userData) => {
    });
   });
 }; 
-/* POST create a new user.
- * user data:
- *  {
- *     username : string 
- *  }
+  /**
+ * @api {post} /user/create Create a New User
+ * @apiName CreateUser
+ * @apiGroup User
+ *
+ * @apiParam {String} username Username of the User
+ * @apiSuccess {String} username Username of the User
+ * @apiError {String} err Cause of the error
  */
 router.post('/create', (req,res) => {
   var userData = {
@@ -73,16 +76,19 @@ var updateLocation = (conditions,update,options) => {
   })
 }
 
-/* PUT update an existing user.
- * 'username' has to be provided as validation.
- *  a nonexisting username will result in 400 response.
- *  a valid update data has the following form:
- *  {
- *	 "username":"heisenberg1",
- *   "longitude": 10,
- *	 "latitude":20,
- *	 "type":"Point"
- *   }
+
+  /**
+ * @api {put} /user/updateLocation Update User Location
+ * @apiName UpdateLocation
+ * @apiGroup User
+ *
+ * @apiParam {String} username Username of the User
+ * @apiParam {Number} longitude Longitude of the User's location
+ * @apiParam {Number} latitude latitude of the User's location
+ * @apiParam {String} type Type of the location.
+ * @apiSuccess {String} username Username of the User
+ * @apiSuccess {Location} location updated location of the User
+ * @apiError {String} err Cause of the error
  */
 router.put('/updateLocation',(req,res) => {
   var conditions = {
