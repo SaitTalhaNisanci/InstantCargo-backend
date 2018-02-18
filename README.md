@@ -21,6 +21,7 @@ Ahmet is in Besiktas and he is driving to Bogazici. He wants to check if there a
 * [config](https://github.com/lorenwest/node-config) Production and testing seperation for databases
 * [chalk](https://github.com/chalk/chalk) Logging with style for terminal
 * [nodemon](https://nodemon.io)  starts the server whenever there is a change. This is for faster development.
+* [apidoc](http://apidocjs.com) to generate api docs
 
 
 [nodejs](https://nodejs.org) is the development language for server side.
