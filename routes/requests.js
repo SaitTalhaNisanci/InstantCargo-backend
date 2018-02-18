@@ -115,7 +115,11 @@ router.post('/getAll',(req,res) => {
 module.exports = router;
 
 
-
+/*
+ * POST to choose a request as a deliverman.
+ * Since tracking requests needs to be accessed fast
+ * hazelcast is used for caching.
+ */
 router.post('/choose',(req,res) => {
     let requestTrackData = {
         request: {
