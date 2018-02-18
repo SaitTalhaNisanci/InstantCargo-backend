@@ -13,14 +13,18 @@ const logMessages = {
     nonExistentUserOrError: "User does not exist or there was an error.",
     userCreated: "A new user has been created!",
     requestCreated: "A new request has been created!",
+    languageChosen: "The language is chosen as: "
 }
 
 // Unit constants
 const km = 1000
 
+// Language constants
+const en = "en";
 module.exports={
     connectionUrl,
     collectionNames,
     km,
-    logMessages
+    logMessages,
+    en
 }
