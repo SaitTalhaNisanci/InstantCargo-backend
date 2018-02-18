@@ -5,7 +5,8 @@ var express = require('express'),
     log = new defaultLogger(),
     prettyJSON = require('../common/util'),
     km = require('../common/constants').km,
-    logMessages = require('../common/constants').logMessages;
+    logMessages = require('../common/constants').logMessages,
+    hazelcastClient = require('../cache/hazelcast');
     
 
 /*
@@ -71,7 +72,7 @@ var getAll = (getAllData)=>{
                     { 
                         $near: {
                             type: "Point" ,
-                            coordinates: [ getAllData.lat ,getAllData.long ]
+                            coordinates: [ getAllData.long ,getAllData.lat ]
                        },
                         $maxDistance : getAllData.distance*km
                     }
@@ -112,3 +113,22 @@ router.post('/getAll',(req,res) => {
         })
 })
 module.exports = router;
+
+
+
+router.post('/choose',(req,res) => {
+    let requestTrackData = {
+        request: {
+            id : req.body._id,
+            destination: req.body.destination,
+            source : req.body.source,
+        },
+        deliverman: {
+            username:req.body.username,
+            location:req.body.location
+        }
+    }
+    let map = hazelcastClient.map;
+    hazelcastClient.insertRequestDeliverman(map,requestTrackData.request,)
+    
+})
