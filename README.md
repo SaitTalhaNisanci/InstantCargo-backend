@@ -40,6 +40,25 @@ npm test
 ```
 Testing uses a different database than production database with the help of config module.
 
+## Development
+
+# Building And Installing from Sources
+
+Follow the below steps to build and install *Instant Cargo* from its source:
+
+* Clone the GitHub repository [https://github.com/SaitTalhaNisanci/InstantCargo-backend.git](https://github.com/SaitTalhaNisanci/InstantCargo-backend.git).
+```
+git clone https://github.com/SaitTalhaNisanci/InstantCargo-backend.git
+```
+* Install the dependencies using the command:
+```
+npm install
+```
+* Compile TypeScript using the command:
+```
+npm run compile
+```
+
 ## Contributors
 * [Atakan Guney](https://github.com/atakanguney)
 * [Sait Talha Nisanci](https://github.com/SaitTalhaNisanci)
