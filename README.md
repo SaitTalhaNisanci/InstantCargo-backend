@@ -42,7 +42,7 @@ Testing uses a different database than production database with the help of conf
 
 ## Development
 
-# Building And Installing from Sources
+### Building And Installing from Sources
 
 Follow the below steps to build and install *Instant Cargo* from its source:
 
