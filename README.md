@@ -1,6 +1,7 @@
 # getir2018Hackathon
-
+```
 This project is currently under active development.
+```
 
 ## Instant Cargo
 Instant Cargo is a platfowm where people can get fast cargo from available nearby drivers. If you forget any deliverable object or if you would like something to be delivered to some place you can make a request. People who would like to deliver will see the nearby requests. 
@@ -9,6 +10,8 @@ Instant Cargo is a platfowm where people can get fast cargo from available nearb
 Burak is a student at Bogazici University. The weather is really nice and he wants to play frisbee but he realizes that he forgot his frisbee at Besiktas. He opens Instant Cargo app and he creates a new request. He chooses destination as Bogazici University and source as Besiktas.
 
 Ahmet is in Besiktas and he is driving to Bogazici. He wants to check if there are any requests in Besiktas from Instant Cargo app. He sees Burak's request and he takes the frisbee and delivers it to Burak.
+
+
 ## Dependencies
 * [express](https://expressjs.com) Rest Framework
 * [mongoose](http://mongoosejs.com) NoSql database engine
@@ -22,7 +25,14 @@ Ahmet is in Besiktas and he is driving to Bogazici. He wants to check if there a
 
 [nodejs](https://nodejs.org) is the development language for server side.
 
+## Services
 
+Our server is located on heroku:
+```
+https://ancient-reaches-56971.herokuapp.com/
+```
+
+Our production and test databases are on [mlab](https://mlab.com)
 ## Test
 To run the tests simlpy execute
 ```
